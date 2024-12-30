@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pribadi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f0e3;
+            color: #5a4634;
+        }
+
+        .welcome-screen, .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .welcome-screen {
+            background-color: #a17f64;
+            color: white;
+            text-align: center;
+        }
+
+        .welcome-screen img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #fff5e1;
+            object-fit: cover;
+        }
+
+        .welcome-screen h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-screen button {
+            background-color: #d3b79f;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .welcome-screen button:hover {
+            background-color: #b79a85;
+        }
+
+        .main-content {
+            display: none;
+            padding: 2rem;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #5a4634;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        .menu {
+            background-color: #d3b79f;
+            color: #5a4634;
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu h2 {
+            margin: 0;
+        }
+
+        .menu span {
+            font-size: 1.5rem;
+        }
+
+        .content {
+            display: none;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #fff5e1;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            padding: 0.7rem 1.5rem;
+            margin: 0 5px;
+            border-radius: 5px;
+            background-color: #5a4634;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #453528;
+        }
+
+        .back-button {
+            display: block;
+            margin: 2rem auto 0;
+            background-color: #b79a85;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #a17f64;
+        }
+    </style>
+    <script>
+        function showMainContent() {
+            document.querySelector('.welcome-screen').style.display = 'none';
+            document.querySelector('.main-content').style.display = 'flex';
+        }
+
+        function goBackToWelcome() {
+            document.querySelector('.main-content').style.display = 'none';
+            document.querySelector('.welcome-screen').style.display = 'flex';
+        }
+
+        function toggleContent(sectionId) {
+            const content = document.getElementById(sectionId);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Halaman Welcome -->
+    <div class="welcome-screen">
+        <img src="img/widia.jpg" alt="Foto Profil">
+        <h1>Selamat Datang di Profil Saya</h1>
+        <button onclick="showMainContent()">Lanjutkan</button>
+    </div>
+
+    <!-- Halaman Konten Utama -->
+    <div class="main-content">
+        <header>
+            <h1>Profil Pribadi</h1>
+        </header>
+
+        <!-- Informasi Pribadi -->
+        <div class="menu" onclick="toggleContent('informasi-pribadi')">
+            <h2>Informasi Pribadi</h2>
+            <span>+</span>
+        </div>
+        <div id="informasi-pribadi" class="content">
+            <div><strong>Nama:</strong> Vemas Fariza</div>
+            <div><strong>Usia:</strong> 19</div>
+            <div><strong>Alamat:</strong> Cirebon</div>
+            <div><strong>Email:</strong> <a href="mailto:vemasfariza2@gmail.com">vemasfariza2@gmail.com</a></div>
+        </div>
+
+        <!-- Pendidikan Terakhir -->
+        <div class="menu" onclick="toggleContent('pendidikan-terakhir')">
+            <h2>Pendidikan Terakhir</h2>
+            <span>+</span>
+        </div>
+        <div id="pendidikan-terakhir" class="content">
+            <div>2020 - SMPN 1 Kramatmulya</div>
+            <div>2023 - SMK Karya Nasional Kuningan</div>
+            <div>Now - Universitas Kuningan</div>
+        </div>
+
+        <!-- Tentang Kuliah -->
+        <div class="menu" onclick="toggleContent('tentang-kuliah')">
+            <h2>Tentang Kuliah</h2>
+            <span>+</span>
+        </div>
+        <div id="tentang-kuliah" class="content">
+            <p>Saat ini saya berada di program studi Teknik Informatika Universitas Kuningan. Saya membuat website sederhana ini untuk tugas praktikum pemrograman fundamental menggunakan HTML dan CSS.</p>
+        </div>
+
+        <!-- Minat -->
+        <div class="menu" onclick="toggleContent('minat')">
+            <h2>Minat</h2>
+            <span>+</span>
+        </div>
+        <div id="minat" class="content">
+            <p>Saya sangat tertarik dengan perkembangan teknologi terbaru, khususnya dalam dunia cyber security. Saya selalu berusaha mengikuti tren dan belajar hal-hal baru di bidang ini untuk menambah atau memperluas pengetahuan saya.</p>
+        </div>
+
+        <!-- Media Sosial -->
+        <div class="social-icons">
+            <h3>Ikuti Saya di Media Sosial:</h3>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+
+        <!-- Tombol Kembali -->
+        <button class="back-button" onclick="goBackToWelcome()">Kembali</button>
+    </div>
+
+</body>
+</html>
